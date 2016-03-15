@@ -8,5 +8,16 @@
 
 特地做个新闻类的，API比较好找，😄，边做还能看看新闻娱乐，此工程会持续更新，何乐而不为呢，有什么问题望大家多多意见！<br> 
 
+SnapKit/Masonry https://github.com/SnapKit/Masonry<br> 
+有趣的Autolayout示例-Masonry实现<br> 
+讲解了Case1到Case3<br> 
+
+有趣的Autolayout示例2-Masonry实现<br> 
+讲解了Case4到Case6<br> 
+
+有趣的Autolayout示例3-Masonry实现
+讲解了Case7到Case9<br> 
+
+
 
 

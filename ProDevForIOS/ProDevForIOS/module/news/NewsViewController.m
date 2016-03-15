@@ -182,7 +182,7 @@
 (NSIndexPath *)indexPath{
     ListItem *content=[_resultArray objectAtIndex:indexPath.row];
     if([content.resource.images count]>1){
-        return SCREEN_WIDTH/3+[TextUtils getActualCGSize:content.resource.title font:t15font].height+[TextUtils getActualCGSize:content.resource.source font:t12font].height+5;
+        return SCREEN_WIDTH/3+[TextUtils getActualCGSize:content.resource.title font:t15font].height+[TextUtils getActualCGSize:content.resource.source font:t12font].height+8;
     }else if([content.resource.images count]==1){
           return SCREEN_WIDTH/3+1;
     }else{

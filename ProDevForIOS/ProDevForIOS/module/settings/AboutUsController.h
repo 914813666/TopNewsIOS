@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface AboutUsController : BaseViewController
-
+@interface AboutUsController : BaseViewController<UIScrollViewDelegate>
+  @property (strong, nonatomic) NSArray * views;
+  @property (strong, nonatomic) NSArray * views_1;
+  @property (strong, nonatomic) UIScrollView * scrollView;
 @end

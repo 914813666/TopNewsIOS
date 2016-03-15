@@ -168,6 +168,7 @@
     if(indexPath.section==1){
         if(indexPath.row==2){
             AboutUsController *usController=[AboutUsController alloc];
+             usController.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:usController animated:YES];
         }
     }
