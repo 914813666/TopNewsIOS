@@ -19,101 +19,107 @@
  {
          self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
          if (self) {
-             UILabel *titleLabel = [[UILabel alloc] init];
+             _t12font = [UIFont systemFontOfSize:12];
+             UILabel *titleLabel = [UILabel new];
       
              titleLabel.textColor=[UIColor blackColor];
+             titleLabel.numberOfLines = 0;
+             titleLabel.font=[UIFont systemFontOfSize:14];
+             titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
              [self.contentView addSubview:titleLabel];
              _titleLabel = titleLabel;
              /*----------------------------------*/
              UIImageView *picView = [[UIImageView alloc] init];
              picView.contentMode=UIViewContentModeScaleAspectFit;
              _picImg= picView;
-            //[self.contentView addSubview:picView];
+            [self.contentView addSubview:picView];
      
              //
              UIImageView *picView1 = [[UIImageView alloc] init];
              picView1.contentMode=UIViewContentModeScaleAspectFit;
              _picImg1= picView1;
-            //[self.contentView addSubview:picView1];
+            [self.contentView addSubview:picView1];
             
              //
              UIImageView *picView2 = [[UIImageView alloc] init];
              picView2.contentMode=UIViewContentModeScaleAspectFit;
              _picImg2= picView2;
-            //[self.contentView addSubview:picView2];
+            [self.contentView addSubview:picView2];
         
              /*----------------------------------*/
              UILabel *explaLable = [[UILabel alloc] init];
               explaLable.textColor=[UIColor grayColor];
              [self.contentView addSubview:explaLable];
              _explaLable = explaLable;
+              _explaLable.font=[UIFont systemFontOfSize:12];
              /*----------------------------------*/
              UILabel *timeLable = [[UILabel alloc] init];
               timeLable.textColor=[UIColor grayColor];
              [self.contentView addSubview:timeLable];
              _timeLable = timeLable;
+              _timeLable.font=[UIFont systemFontOfSize:12];
+             
+              _picsArray=@[_picImg,_picImg1,_picImg2];
         }
          return self;
      }
 
 -(void)refreshCellData:(ItemResource *)content{
-  
+    __weak typeof(self) weakSelf = self;
+    //UIFont * t15font = [UIFont systemFontOfSize:15];
+    
     [_titleLabel setText:content.title];
     [_explaLable setText:content.source];
     [_timeLable setText:content.source_public_time];
     _titleLabel.textColor=[UIColor blackColor];
-    UIFont * t15font = [UIFont systemFontOfSize:15];
-    UIFont * t12font = [UIFont systemFontOfSize:12];
-    _titleLabel.numberOfLines = 4;
-    _titleLabel.font=t15font;
-    _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        //make.width.mas_equalTo(SCREEN_WIDTH);
-        make.height.mas_equalTo([TextUtils getActualCGSize:_titleLabel.text font:t15font].height);
+        make.width.mas_equalTo(SCREEN_WIDTH);
         make.top.mas_equalTo(5);
         make.left.mas_equalTo(5);
     }];
-    _picsArray=@[_picImg,_picImg1,_picImg2];
+
     for (NSUInteger i = 0; i < [_picsArray count]; i++) {
         UIImageView *itemView = _picsArray[i];
-        [self.contentView addSubview:itemView];
-        
         [itemView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3, SCREEN_WIDTH/3));
             make.top.equalTo(_titleLabel.mas_bottom);
-            //make.centerY.equalTo(baseview.mas_centerY);
+             make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3-5,SCREEN_WIDTH/3));
             if(i==0){
-                make.left.equalTo(self.contentView.mas_left);
+                make.left.equalTo(weakSelf.contentView.mas_left);
             }else if(i==[_picsArray count]-1){
-                make.left.equalTo(itemView.mas_right);
-                make.right.equalTo(self.contentView.mas_right);
+                make.left.equalTo(itemView.mas_right).offset(5);
+                make.right.equalTo(weakSelf.contentView.mas_right);
             }else{
                 UIImageView *middleView = _picsArray[i-1];
-                make.left.equalTo(middleView.mas_right);
+                make.left.equalTo(middleView.mas_right).offset(5);
             }
             
         }];
     }
-    //
     ImageUrls *urls=content.images[0];
     ImageUrls *urls1=content.images[1];
     ImageUrls *urls2=content.images[2];
     NSURL *url=[NSURL URLWithString:urls.url];
     NSURL *url1=[NSURL URLWithString:urls1.url];
     NSURL *url2=[NSURL URLWithString:urls2.url];
-    [_picImg sd_setImageWithURL:url];
-    [_picImg1 sd_setImageWithURL:url1];
-    [_picImg2 sd_setImageWithURL:url2];
+    [_picImg sd_setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    }];
+    [_picImg1 sd_setImageWithURL:url1 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    }];
+    [_picImg2 sd_setImageWithURL:url2 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
 
-    _timeLable.font=t12font;
+    }];
+
+    _timeLable.font=_t12font;
     [_timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo( [TextUtils getActualCGSize:_timeLable.text font:t12font].height);
+        make.height.mas_equalTo( [TextUtils getActualCGSize:_timeLable.text font:_t12font].height);
+        make.left.equalTo(weakSelf.contentView).offset(5);
         make.top.equalTo(_picImg.mas_bottom);
         
     }];
-    _explaLable.font=t12font;
+    _explaLable.font=_t12font;
     [_explaLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo( [TextUtils getActualCGSize:_explaLable.text font:t12font].height);
+        make.height.mas_equalTo( [TextUtils getActualCGSize:_explaLable.text font:_t12font].height);
         make.top.equalTo(_picImg.mas_bottom);
         make.left.equalTo(_timeLable.mas_right).offset(5);
         

@@ -19,5 +19,6 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *explaLable;
 @property (nonatomic, strong) UILabel *timeLable;
+@property (nonatomic, strong) UIFont *t12font;
 -(void)refreshCellData:(ItemResource *)content;
 @end

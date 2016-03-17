@@ -145,7 +145,6 @@
     if([content.resource.images count]>1){
         CustomTableCellTableViewCell0* cell0 = [tableView
                                         dequeueReusableCellWithIdentifier:cellId0];
-        
         if(cell0 == nil){
             cell0 = [[CustomTableCellTableViewCell0 alloc]
                      initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId0];

@@ -46,6 +46,8 @@ typedef void (^ErrorDataBlock) (id errorData);
 
 #define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:ext]]
 
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
 #define JD_RELEASE_SAFELY(__POINTER) { if ([__POINTER respondsToSelector:@selector(setDelegate:)]) {\
 [__POINTER performSelector:@selector(setDelegate:) withObject:nil];\
 } \

@@ -20,5 +20,10 @@
                        WithParameter: (NSDictionary *) parameter
                 WithReturnValeuBlock: (ReturnValueBlock) block
                   WithErrorCodeBlock: (ErrorCodeBlock) errorBlock;
+#pragma DOWNLOAD请求
++ (void) NetRequestDownloadWithRequestURL: (NSString *) requestURLString
+                       WithParameter: (NSDictionary *) parameter
+                WithReturnValeuBlock: (ReturnValueBlock) block
+                  WithErrorCodeBlock: (ErrorCodeBlock) errorBlock;
 
 @end

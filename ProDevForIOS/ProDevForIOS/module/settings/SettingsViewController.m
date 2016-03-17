@@ -15,6 +15,7 @@
 #import "MMDateView.h"
 #import "MMPopupWindow.h"
 #import "AboutUsController.h"
+#import "ReactController.h"
 @interface SettingsViewController()
     
 
@@ -167,7 +168,7 @@
     }
     if(indexPath.section==1){
         if(indexPath.row==2){
-            AboutUsController *usController=[AboutUsController alloc];
+            ReactController *usController=[ReactController alloc];
              usController.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:usController animated:YES];
         }

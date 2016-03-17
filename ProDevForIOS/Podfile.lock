@@ -20,6 +20,7 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
+  - SSZipArchive (1.1)
   - YYCache (1.0)
   - YYModel (0.9.12)
 
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.0)
   - Reachability (~> 3.2)
   - SDWebImage (~> 3.7.5)
+  - SSZipArchive
   - YYCache (~> 1.0)
   - YYModel (~> 0.9.12)
 
@@ -38,9 +40,10 @@ SPEC CHECKSUMS:
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  SSZipArchive: de3d215ab73f87db627f81f2ce24f1731e3886c3
   YYCache: 671da5662bbd0165f144bfab1c2ba9d9548200d3
   YYModel: 33a27f41a995f4c36ff8178421bac9f221a9c7ea
 
-PODFILE CHECKSUM: edd31a65347b71d13ca4dcbcf44d2661b060f77f
+PODFILE CHECKSUM: d7ba294b2b7e3c0daeee017b19de1215f186e1c4
 
 COCOAPODS: 1.0.0.beta.4
