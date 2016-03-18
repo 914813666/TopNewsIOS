@@ -90,7 +90,7 @@
     [KVNProgress show];
     NSURLSessionDownloadTask *task=[manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            //[KVNProgress showProgress:downloadProgress.fractionCompleted];
+            [KVNProgress showProgress:downloadProgress.fractionCompleted];
         });
     } destination: ^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];

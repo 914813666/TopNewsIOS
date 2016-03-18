@@ -62,7 +62,7 @@
 }
 -(void)download{
     WS(weakself)
-    [NetRequest NetRequestDownloadWithRequestURL:@"http://localhost:8080/MobileSpringMVC/files/news_jsbundle.zip" WithParameter:nil WithReturnValeuBlock:^(id returnValue) {
+    [NetRequest NetRequestDownloadWithRequestURL:@"https://github.com/ymcao/TopNewsIOS/raw/master/filezip/news_jsbundle.zip" WithParameter:nil WithReturnValeuBlock:^(id returnValue) {
         
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentpath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
@@ -71,9 +71,20 @@
         NSRange range = [returnValue rangeOfString:@"."];
         NSString * result = [returnValue substringToIndex:range.location];
         NSString* unzipto = [documentpath stringByAppendingFormat:@"%@%@",@"/",result];
+        NSLog(@"%@",unzipfrom);
         
-        [SSZipArchive unzipFileAtPath:unzipfrom toDestination:unzipto];
-        [weakself initReactModule:result];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            [SSZipArchive unzipFileAtPath:unzipfrom toDestination:unzipto progressHandler:^(NSString *entry, unz_file_info zipInfo, long entryNumber, long total) {
+                
+            } completionHandler:^(NSString *path, BOOL succeeded, NSError *error) {
+                if(succeeded){
+                    dispatch_async(dispatch_get_main_queue(),^{
+                        [weakself initReactModule:result];
+                    });
+                }
+            }];
+           
+        });
         
     } WithErrorCodeBlock:^(id errorCode) {
         
