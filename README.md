@@ -2,7 +2,7 @@
 
 ` 新闻头条IOS+ReactNative混合版本(Layout采用Masonry) `
 
- ![image](https://github.com/ymcao/TopNewsIOS/raw/master/screenshot/1.png）
+ ![](https://github.com/ymcao/TopNewsIOS/raw/master/screenshot/1.png）
 
  最近项目不是特别忙，本人一直做Android研发架构的，现打算用Masonry来做IOS UI AutoLayout适配，并初步实现React Native的离线包下载，然后解压到沙盒目录，可用未来IOS插件化工作!<br> 
 
