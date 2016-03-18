@@ -16,8 +16,9 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self makeUI];
+    [self.navigationItem setTitle:_webtitle];
     _weburl=[@"http://m.yergoo.com/api/news/app/" stringByAppendingString:_weburl];
-    NSURL *URL=[NSURL URLWithString:_weburl];
+     NSURL *URL=[NSURL URLWithString:_weburl];
     [_webView loadRequest:[ NSURLRequest requestWithURL: URL ]];
 }
 -(void)makeUI{

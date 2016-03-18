@@ -10,6 +10,7 @@
 #import "SSZipArchive.h"
 #import "Masonry.h"
 #import "RCTRootView.h"
+#import "NewsBrowserController.h"
 @interface ReactNewsController(){
     RCTRootView *rootView;
     NSInteger curIndex;
@@ -57,6 +58,7 @@
 -(void)initMenu{
     _menusArray=@[@"推荐",@"新闻",@"视频",@"娱乐",@"科技",@"体育"];
     _menusDataArray=@[@"index",@"news",@"video",@"entertainment",@"tech",@"sports"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"notificationFReact" object:nil];
 }
 -(void)download{
     WS(weakself)
@@ -104,5 +106,23 @@
     }
      curIndex=index;
     
+}
+-(void)handleNotification:(NSNotification*)notification{
+    NSString *newsid = [[notification userInfo] valueForKey:@"newsid"];
+    NSString *title = [[notification userInfo] valueForKey:@"title"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NewsBrowserController *broserNews=[NewsBrowserController alloc];
+        broserNews.weburl=newsid;
+        broserNews.webtitle=title;
+        broserNews.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:broserNews animated:YES];
+    });
+
+   
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"notificationFReact" object:nil];
 }
 @end

@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "CustomScrollMenu.h"
+#import "RCTBridgeModule.h"
 @interface ReactNewsController : UIViewController<CustomScrollerMenuDelegate>
   @property (strong, nonatomic) CustomScrollMenu  *scrollMenu;
  @property (strong, nonatomic) NSArray * menusArray;

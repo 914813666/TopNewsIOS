@@ -10,6 +10,9 @@
 #import "Masonry.h"
 static const CGFloat ITEM_SIZE = 80;
 @implementation AboutUsController
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO];
+}
 -(void)viewDidLoad{
     [super viewDidLoad];
     //int padding1 = 10;

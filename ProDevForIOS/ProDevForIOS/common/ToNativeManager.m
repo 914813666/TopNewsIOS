@@ -11,12 +11,12 @@
 
 @implementation ToNativeManager
    RCT_EXPORT_MODULE();
-   RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location){
-       dispatch_async(dispatch_get_main_queue(), ^{
-           UITabBarController  *controller = (UITabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
-           AboutUsController *usController=[AboutUsController alloc];
-           usController.hidesBottomBarWhenPushed=YES;
-           [controller.navigationController pushViewController:usController animated:true ];
-       });
+   RCT_EXPORT_METHOD(postNotification:(NSString *)notifiname params:(NSDictionary *)params){
+    [[NSNotificationCenter defaultCenter] postNotificationName:notifiname object:self userInfo:params];
+}
+
+- (dispatch_queue_t)methodQueue
+{
+    return dispatch_get_main_queue();
 }
 @end
