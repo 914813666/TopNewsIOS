@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "SettingsViewController.h"
 #import "DiscoveryViewController.h"
-#import "NewsViewController.h"
+#import "ReactNewsController.h"
 #import "AppDelegate.h"
 @implementation HomeViewController
 
@@ -34,7 +34,7 @@
     [discoveryPage.tabBarItem setTitle:@"发现"];
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:discoveryPage];
     
-    NewsViewController *newsPage = [[NewsViewController alloc] init];
+    ReactNewsController *newsPage = [[ReactNewsController alloc] init];
     [newsPage.tabBarItem setImage:[[UIImage imageNamed:@"ios7-paper-outline"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [newsPage.tabBarItem setSelectedImage:[[UIImage imageNamed:@"ios7-paper"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [newsPage.tabBarItem setTitle:@"资讯"];

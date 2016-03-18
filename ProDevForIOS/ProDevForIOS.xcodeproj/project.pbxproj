@@ -66,6 +66,8 @@
 		447E6F1D1C85E4FF005D6286 /* HTTPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E6F1C1C85E4FF005D6286 /* HTTPHelper.m */; };
 		449E36031C7820330054F19D /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 449E36021C7820330054F19D /* Shop.m */; };
 		449E36061C7820410054F19D /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = 449E36051C7820410054F19D /* Content.m */; };
+		44FCDCA61C9BA67000F9067F /* ReactNewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FCDCA51C9BA67000F9067F /* ReactNewsController.m */; };
+		44FCDCFB1C9C07BC00F9067F /* ToNativeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FCDCFA1C9C07BC00F9067F /* ToNativeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +257,10 @@
 		449E36021C7820330054F19D /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		449E36041C7820410054F19D /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
 		449E36051C7820410054F19D /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
+		44FCDCA41C9BA67000F9067F /* ReactNewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactNewsController.h; sourceTree = "<group>"; };
+		44FCDCA51C9BA67000F9067F /* ReactNewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNewsController.m; sourceTree = "<group>"; };
+		44FCDCF91C9C07BC00F9067F /* ToNativeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToNativeManager.h; sourceTree = "<group>"; };
+		44FCDCFA1C9C07BC00F9067F /* ToNativeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToNativeManager.m; sourceTree = "<group>"; };
 		79BF9B41024492CE70C3DF37 /* Pods-ProDevForIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProDevForIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProDevForIOS/Pods-ProDevForIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -472,6 +478,7 @@
 		441339581C774F9000CBFB1A /* ProDevForIOS */ = {
 			isa = PBXGroup;
 			children = (
+				44FCDCF11C9C077C00F9067F /* common */,
 				447E6EEA1C85C404005D6286 /* utils */,
 				441339931C77518300CBFB1A /* config */,
 				4413398F1C77504D00CBFB1A /* vendor */,
@@ -686,8 +693,19 @@
 				447E6F121C85CDC6005D6286 /* NewsViewController.m */,
 				444C96AA1C97D23F0095DFE3 /* NewsBrowserController.h */,
 				444C96AB1C97D23F0095DFE3 /* NewsBrowserController.m */,
+				44FCDCA41C9BA67000F9067F /* ReactNewsController.h */,
+				44FCDCA51C9BA67000F9067F /* ReactNewsController.m */,
 			);
 			path = news;
+			sourceTree = "<group>";
+		};
+		44FCDCF11C9C077C00F9067F /* common */ = {
+			isa = PBXGroup;
+			children = (
+				44FCDCF91C9C07BC00F9067F /* ToNativeManager.h */,
+				44FCDCFA1C9C07BC00F9067F /* ToNativeManager.m */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 		D90740867543CAB0B12109C0 /* Frameworks */ = {
@@ -978,6 +996,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44FCDCA61C9BA67000F9067F /* ReactNewsController.m in Sources */,
 				441339A91C777E5300CBFB1A /* CornerBgView.m in Sources */,
 				4407C3C21C9718D500356500 /* Datas.m in Sources */,
 				4407C3CE1C971AAA00356500 /* ImagesUrls.m in Sources */,
@@ -991,6 +1010,7 @@
 				4409F8701C969E300066E8FB /* UIImage+KVNImageEffects.m in Sources */,
 				4407C3D81C971FB000356500 /* CustomTableCellTableViewCell.m in Sources */,
 				444C96CA1C98009A0095DFE3 /* MMDateView.m in Sources */,
+				44FCDCFB1C9C07BC00F9067F /* ToNativeManager.m in Sources */,
 				4413395E1C774F9000CBFB1A /* AppDelegate.m in Sources */,
 				4409F8771C96A1C30066E8FB /* SettingsGroupItem.m in Sources */,
 				4407C3C81C97196100356500 /* ListItem.m in Sources */,
