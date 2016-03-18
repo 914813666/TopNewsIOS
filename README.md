@@ -27,7 +27,7 @@ IOS原生工程集成React Native
  7.压缩成zip放到服务器，这样就可以动态下载，然后解压，通过路径查找去加载离线jsbunle了，这块详见module/settings/ReactController.m
 
 特地做个新闻类的，API比较好找，😄，边做还能看看新闻娱乐，此工程会持续更新，何乐而不为呢，有什么问题望大家多多意见！<br> 
-
+![](https://github.com/ymcao/TopNewsIOS/raw/master/screenshot/2.png)
 
 ![](https://github.com/ymcao/TopNewsIOS/raw/master/screenshot/1.png)
 
